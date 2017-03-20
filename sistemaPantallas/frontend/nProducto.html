@@ -1,0 +1,161 @@
+<html>
+<head>
+	<title>Producto</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="keywords" content="menu, navigation, animation, transition, transform, rotate, css3, web design, component, icon, slide" />
+    <link rel="shortcut icon" href="../favicon.ico"> 
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/select2.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/datatable.css" />
+    
+    <script type="text/javascript" src="../js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="../js/select2.min.js"></script>
+</head>
+<body>
+	<div clas="container-fluid">
+        <nav class="navbar navbar-default" style="background-color: #19917B;"></nav>
+<!--			<div  class="col-xs-12 col-sm-6 col-md-3">
+				<br>
+				<img src="../img/logotipo.png" style="margin-left:18%">
+				<ul id="tabs" class="nav nav-pills nav-stacked">
+                    <li role="presentation" class="active"><a id="registros" href="#registroUsuarios" data-toggle="tab">Registro de usuarios</a></li>
+                    <li role="presentation"><a href="#nuevoUsuarios" data-toggle="tab">Alta de usuario</a></li>
+                    <li role="presentation"><a href="#modificarUsuarios" data-toggle="tab">Modificar usuario</a></li><hr>
+                    <div id="divinicio" style="display:none;"><li><button type="button" onclick="location.href='inicio.php'" class="btn btn-primary btn-block">Inicio</button></li></div><br>
+                    <li><button type="button" id="logout" class="btn btn-danger btn-block">Cerrar Sesi&oacute;n</button></li>
+                    
+                </ul>
+			</div>
+    -->
+<div class="container">
+
+    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+<fieldset>
+
+        <!-- Form Name -->
+        <legend>Registrar Producto</legend>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Nombre del producto</label>  
+          <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-registration-mark"></i></span>
+          <input  name="nombre" placeholder="Nombre del producto" class="form-control"  type="text">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" >Clave de estante</label> 
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
+          <input name="claveE" placeholder="Clave de estante" class="form-control"  type="text">
+            </div>
+          </div>
+        </div>
+
+            <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" >Clave</label> 
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
+          <input name="clave" placeholder="Clave" class="form-control"  type="text">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+               <div class="form-group">
+          <label class="col-md-4 control-label">Precio</label>  
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
+          <input name="precio" placeholder="Precio" class="form-control"  type="text">
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Disponibilidad</label>  
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-ok"></i></span>
+                <input type="number" class="form-control" placeholder="Cantidad" id="cantidad">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Agregar foto</label>  
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-paperclip"></i></span>
+                <input type="file" class="form-control" id="foto" placeholder="Archivo">
+            </div>
+          </div>
+        </div>
+
+        <!-- Select Basic -->
+
+        <div class="form-group"> 
+          <label class="col-md-4 control-label">Estatus</label>
+            <div class="col-md-4 selectContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-stats"></i></span>
+            <select name="state" class="form-control selectpicker" >
+              <option value=" " >Seleccionar</option>
+              <option>Disponible</option>
+              <option>No disponible</option>
+
+            </select>
+          </div>
+        </div>
+        </div>
+
+            <!--Text area -->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Descripción</label>
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                    <textarea class="form-control" name="comment" placeholder="Descripción del producto"></textarea>
+          </div>
+          </div>
+        </div>  
+
+        <!-- Success message -->
+            <div class="form-group">
+                <div class="alert alert-success" role="alert" id="success_message">Producto agregado con exito.! <i class="glyphicon glyphicon-thumbs-up"></i>
+                </div>
+            </div>
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-success btn-block" >Agregar <span class="glyphicon glyphicon-send"></span></button>
+          </div>
+        </div>
+
+</fieldset>
+</form>
+</div>
+    </div><!-- /.container --> 
+    </div>
+</body>
+</html>

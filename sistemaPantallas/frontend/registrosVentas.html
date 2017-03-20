@@ -1,0 +1,82 @@
+<html>
+<head>
+	<title>Ventas</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="keywords" content="menu, navigation, animation, transition, transform, rotate, css3, web design, component, icon, slide" />
+    <link rel="shortcut icon" href="../favicon.ico"> 
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/select2.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/datatable.css">
+</head>
+    <body>
+        <div clas="container-fluid">
+            <nav class="navbar navbar-default" style="background-color: #19917B;"></nav>
+	<!--	<div class="col-xs-12 col-sm-6 col-md-3">
+			<br>
+			<img src="../img/logotipo.png" style="margin-left:18%">
+			<ul id="tabs" class="nav nav-pills nav-stacked">
+                <li role="presentation" class="active"><a href="#registroproductos" data-toggle="tab" align="center">Registro de Productos</a></li>
+                <li role="presentation"><a href="#nuevoproducto" data-toggle="tab" align="center">Nuevo Producto</a></li>
+                <li role="presentation"><a href="#modificarproducto" data-toggle="tab" align="center">Modificar de Productos</a></li><hr>
+                    <div id="divinicio" style="display:none;"><li><button type="button" id="inicio" onclick="location.href='inicio.php'" class="btn btn-primary btn-block">Inicio</button></li></div><br>
+                <li role="presentation"><button type="button" class="btn btn-danger btn-block" id="logout">Cerrar sesion</button></li>
+            </ul>
+		</div>
+    -->
+        <div class="row">
+            <center><h1>Registro de Ventas</h1></center><br>
+            <div class="col-md-3"></div>
+            <div class="col-md-2">
+                <h4>Fecha inicio:</h4>
+                <input type="date" class="form-control" id="nuevoContraseña" placeholder="Contraseña">
+            </div>
+            <div class="col-md-2">
+                <h4>Fecha fin:</h4>
+                <input type="date" class="form-control" id="nuevoContraseña" placeholder="Contraseña"><br><br>
+            </div>
+            <div id="consultar" class="col-md-2 col-sm-1">
+                <button type="button" onclick="consultarFecha()" class="btn btn-success btn-block">Consultar</button>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+            
+        <div class="row">
+            <div class="col-md-2"></div>
+        <div class="col-md-8">
+             
+             <!-------------------------------------------------------------------------------->
+             <!-------------------------REGISTROS DE VENTA ------------------------------>
+             <!-------------------------------------------------------------------------------->
+            <div class="tab-pane" id="registroventas">
+                
+                <div class="col-sm-11 col-md-11 col-sm-offset-1">
+                    <div>
+                        <table id="tablaventas" class="table table-hover table-striped">
+                            <thead>  
+                                <tr>
+                                    <th>Clave</th>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Total</th>                                            
+                                </tr>
+                                <tr>
+                                    <th>3245</th>
+                                    <th>20-12-2017</th>
+                                    <th>1:30</th>
+                                    <th>$ 500</th>
+                                </tr>
+                            </thead>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </div>
+           <div class="col-md-2"></div>
+            
+            </div>
+    </div>
+    
+    </body>
+</html>

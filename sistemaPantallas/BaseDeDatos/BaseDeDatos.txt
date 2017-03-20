@@ -1,0 +1,139 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addPersona`(
+	IN _nombre varchar(30),
+    IN _apellidos varchar(30),
+    IN _correo varchar(30),
+    IN _telefono varchar(30),
+    IN _colonia varchar(30),
+    IN _calle varchar(30),
+    IN _imagen blob,
+    IN _rol int,
+    IN _sexo varchar(30)
+
+)
+BEGIN
+	 DECLARE _id INT default 0;
+		insert into persona(nombre,apellidos,correo,telefono,colonia,calle,idRol,sexo)
+        values(_nombre,_apellidos,_correo,_telefono,_colonia,_calle,_rol,_sexo);
+        set _id = last_insert_id();
+		insert into imagenPersona(idPersona,imagen) values(_id,_imagen);
+
+END
+
+
+//////////////////////////////////////////////////////////////////////////
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addProducto`(
+	IN _nombre varchar(30),
+    IN _clave varchar(30),
+    IN _cantidad int,
+    IN _precio float,
+    IN _descripcion varchar(256),
+    IN _imagen blob
+
+)
+BEGIN
+	 DECLARE _id INT default 0;
+		insert into producto(nombre,clave,cantidad,precio,descripcion)
+        values(_nombre,_clave,_cantidad,_precio,_descripcion);
+        set _id = last_insert_id();
+		insert into imagenProducto(idProducto,imagen) values(_id,_imagen);
+
+END
+
+
+/////////////////////////////////////////////////////////////////
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `updateProducto`(
+	IN _id int,
+    IN _cantidad int
+)
+BEGIN
+	UPDATE producto
+    SET cantidad = _cantidad
+    where idProducto = _id;
+END
+
+
+/////////////////////////////////////////////////////
+
+CREATE PROCEDURE addVenta (
+	IN _idProducto int,
+    IN _productos varchar(256),
+    IN _cantida int,
+    IN _subtotal float,
+    IN _total float,
+    IN _fecha date
+)
+BEGIN
+
+END
+
+
+////////////// BASE DE DATOS /////////////////////////
+
+CREATE DATABASE  IF NOT EXISTS We1;
+use Web1;
+CREATE TABLE imagenpersona (
+  idImagenPersona int(11) NOT NULL AUTO_INCREMENT,
+  idPersona int(11) DEFAULT NULL,
+  imagen blob,
+  PRIMARY KEY (idImagenPersona),
+  KEY idPersona (idPersona),
+  CONSTRAINT `imagenpersona_ibfk_1` FOREIGN KEY (idPersona) REFERENCES persona (idPersona)
+);
+
+CREATE TABLE imagenproducto (
+  idImagenProducto int(11) NOT NULL AUTO_INCREMENT,
+  idProducto int(11) DEFAULT NULL,
+  imagen blob,
+  PRIMARY KEY (idImagenProducto),
+  KEY idProducto (idProducto),
+  CONSTRAINT `imagenproducto_ibfk_1` FOREIGN KEY (idProducto) REFERENCES producto (idProducto)
+);
+
+CREATE TABLE persona (
+  idPersona int(11) NOT NULL AUTO_INCREMENT,
+  idRol int(11) DEFAULT NULL,
+  nombre varchar(30) DEFAULT NULL,
+  apellidos varchar(30) DEFAULT NULL,
+  calle varchar(30) DEFAULT NULL,
+  Colonia varchar(30) DEFAULT NULL,
+  telefono varchar(30) DEFAULT NULL,
+  correo varchar(30) DEFAULT NULL,
+  sexo varchar(30) DEFAULT NULL,
+  estatus bit(1) DEFAULT b'1',
+  PRIMARY KEY (idPersona),
+  KEY idRol (idRol),
+  CONSTRAINT `persona_ibfk_1` FOREIGN KEY (idRol) REFERENCES rol (idRol)
+);
+
+CREATE TABLE producto (
+  idProducto int(11) NOT NULL AUTO_INCREMENT,
+  nombre varchar(30) DEFAULT NULL,
+  clave varchar(30) DEFAULT NULL,
+  cantidad int(11) DEFAULT NULL,
+  precio float DEFAULT NULL,
+  descripcion varchar(256) DEFAULT NULL,
+  estatus bit(1) DEFAULT b'1',
+  PRIMARY KEY (`idProducto`)
+);
+
+CREATE TABLE rol (
+  idRol int(11) NOT NULL AUTO_INCREMENT,
+  nombre varchar(30) NOT NULL,
+  PRIMARY KEY (idRol)
+);
+
+CREATE TABLE venta (
+  idVenta int(11) NOT NULL AUTO_INCREMENT,
+  idProducto int(11) DEFAULT NULL,
+  productos varchar(256) DEFAULT NULL,
+  cantidad int(11) DEFAULT NULL,
+  subtotal float DEFAULT NULL,
+  total int(11) DEFAULT NULL,
+  fecha datetime DEFAULT NULL,
+  estatus bit(1) DEFAULT b'1',
+  PRIMARY KEY (idVenta),
+  KEY idProducto (idProducto),
+  CONSTRAINT `ticket_ibfk_2` FOREIGN KEY (idProducto) REFERENCES producto (idProducto)
+);

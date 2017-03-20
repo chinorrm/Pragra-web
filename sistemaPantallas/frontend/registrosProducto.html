@@ -1,0 +1,71 @@
+<html>
+<head>
+	<title>Productos</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="keywords" content="menu, navigation, animation, transition, transform, rotate, css3, web design, component, icon, slide" />
+    <link rel="shortcut icon" href="../favicon.ico"> 
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/select2.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/datatable.css">
+</head>
+    <body>
+        <div clas="container-fluid">
+            <nav class="navbar navbar-default" style="background-color: #19917B;"></nav>
+	<!--	<div class="col-xs-12 col-sm-6 col-md-3">
+			<br>
+			<img src="../img/logotipo.png" style="margin-left:18%">
+			<ul id="tabs" class="nav nav-pills nav-stacked">
+                <li role="presentation" class="active"><a href="#registroproductos" data-toggle="tab" align="center">Registro de Productos</a></li>
+                <li role="presentation"><a href="#nuevoproducto" data-toggle="tab" align="center">Nuevo Producto</a></li>
+                <li role="presentation"><a href="#modificarproducto" data-toggle="tab" align="center">Modificar de Productos</a></li><hr>
+                    <div id="divinicio" style="display:none;"><li><button type="button" id="inicio" onclick="location.href='inicio.php'" class="btn btn-primary btn-block">Inicio</button></li></div><br>
+                <li role="presentation"><button type="button" class="btn btn-danger btn-block" id="logout">Cerrar sesion</button></li>
+            </ul>
+		</div>
+    -->
+             <!-------------------------------------------------------------------------------->
+             <!-------------------------TAB DE REGISTRO PRODUCTO ------------------------------>
+             <!-------------------------------------------------------------------------------->
+            
+        <div class="row">
+            <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="tab-pane active" id="registroproductos">
+                <center><h1>Registro de Productos</h1></center> <br>   
+                <input type="hidden" id="idderol" value="<?php echo $_SESSION['idRol'] ?>">
+                <div class="col-sm-10 col-md-10 col-sm-offset-1">
+                    <div>
+                        <table id="tablaproductos" class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Clave</th>
+                                    <th>Nombre</th>
+                                 <!-- <th>Tipo</th> -->
+                                    <th>Cantidad</th>
+                                    <th>Clave estante</th>
+                                    <th>Precio</th>
+                                    <th>Estatus</th>
+                                </tr>
+                                <tr>
+                                    <th>1255</th>
+                                    <th>Diclofenaco</th>
+                                    <th>50</th>
+                                    <th>005</th>
+                                    <th>$ 50</th>
+                                    <th>Disponible</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+         </div>
+                <div class="col-md-2"></div>
+            
+            </div>
+    </div>
+    
+    </body>
+</html>
